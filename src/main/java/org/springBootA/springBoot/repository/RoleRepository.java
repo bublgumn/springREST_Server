@@ -15,7 +15,6 @@ import java.util.List;
 @Repository
 @Transactional
 public interface RoleRepository extends JpaRepository<Role, Long> {
-
     @Transactional
     @Query("from Role r where r.name = ?1")
     Role findByName(String name);

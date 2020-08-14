@@ -113,23 +113,6 @@ public class User {
         this.role = role;
     }
 
-    public void deleteUserFromRoleForJson() {
-        for (Role value : getRole()
-        ) {
-            value.setClient(null);
-        }
-    }
-
-    public User generateUserForUpdate(User body, RoleService roleService) {
-        List<Role> listForUpdateUser = new ArrayList<>();
-        for (Role role : body.role
-        ) {
-            listForUpdateUser.add(roleService.findByName(role.getName()));
-        }
-        body.setRole(listForUpdateUser);
-        return body;
-    }
-
     @Override
     public String toString() {
         String result = "{id: " + id + "} " + System.lineSeparator() +

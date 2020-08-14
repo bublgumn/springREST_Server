@@ -13,7 +13,7 @@ import java.util.List;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     @Transactional
-    @Query("from User u where u.email = ?1")
+    @Query("select u from User u JOIN FETCH u.role where u.email = ?1")
     User findByEmail(String email);
 
     @Transactional
